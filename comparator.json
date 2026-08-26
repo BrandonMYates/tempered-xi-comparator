@@ -1,0 +1,14 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "TemperedXi.F_differentiable",
+    "TemperedXi.zeros_infinite",
+    "TemperedXi.zeros_off_axes",
+    "TemperedXi.zeros_quartet",
+    "TemperedXi.critical_line_conjecture_false",
+    "TemperedXi.sine_channel_zeros_not_all_real"
+  ],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}
