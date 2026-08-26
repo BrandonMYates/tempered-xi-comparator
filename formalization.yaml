@@ -1,289 +1,275 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
-version: "v0.4"
-
+version: v0.4
 project:
-  name: "Zeros of the odd channel of Riemann's kernel"
-  description: >-
-    This project formalizes in Lean 4 the zero geometry of the odd channel of
-    Riemann's kernel, refuting conjectures of X.-J. Yang (Fractals 32 (2024)
-    2340116). Let Phi be the kernel of Riemann's integral representation,
-    Phi(u) = sum_{n>=1} (4 pi^2 n^4 e^{9u/2} - 6 pi n^2 e^{5u/2}) e^{-pi n^2 e^{2u}},
-    the positive even function whose cosh transform is the completed zeta
-    function, and let F(w) = 2 int_0^infty Phi(u) sinh(wu) du be the odd
-    channel of the same kernel; this is Yang's "tempered xi function", in
-    shifted coordinates. Six statements are compared: F is entire; F has
-    infinitely many zeros; every nonzero zero of F has both real and imaginary
-    parts nonzero; the zeros occur in quartets w, -w, conj w, -conj w;
-    consequently the source paper's Conjecture 1, which asserts that every zero
-    of the tempered xi function lies on the line Re s = 1/2, is false, and
-    indeed apart from the origin no zero lies on that line; and the zeros of
-    the sine channel t -> F(it) are not all real, which is the exactly
-    formalizable content of the source paper's Conjecture 2. The audience is
-    the study of real zeros of Fourier transforms of Riemann's kernel, the
-    line of work of Lagarias and Montague (2011), Ki, Kim and Lee (2009), and
-    the de Bruijn-Newman literature: the weight family interpolating the
-    Lagarias-Montague integrated function and the odd xi derivatives places F
-    at weight zero. Yang's conjectures are the occasion for the formalization,
-    not its research context; Conjecture 1 was also the subject of a prize
-    challenge publicly announced by its author, recorded here solely as
-    evidence that the question was regarded as open and difficult, with no
-    claim made concerning the prize itself. This entry makes no claim
-    concerning the Riemann hypothesis. Scope limitation, stated plainly: the compared theorems
-    quantify over the integral F as defined in the Challenge file. The
-    classical identification of F with the odd part of the completed zeta
-    function is NOT proved in Lean; it was checked numerically only (agreement
-    to about forty digits at several complex points), and nothing in the
-    formal development depends on it. On novelty: the refutation of the source
-    conjectures is believed new. In the literature search completed 26 August
-    2026, every recorded citation of the source paper is a self-citation, the
-    conjectures are restated as open in a 2026 invited review, and no
-    refutation and no proof-assistant formalization of any compared statement
-    was identified; that search is recorded but not exhaustive, and absence
-    from search is not proof of open status. The component statements are not
-    claimed as new: that F is entire of order one with infinitely many zeros
-    was asserted, without proof, by Yang, Abdel-Aty and Geng (Thermal Science
-    27 (2023) 505-512) for this same function; the exclusion of zeros from the
-    imaginary axis is, in sine-transform coordinates, a 1971 theorem of Spira,
-    independently reproved here, with classical ancestry in Polya (1918, 1926)
-    and Wintner (1935); and the quartet symmetry is recorded as a printed
-    remark by Lagarias and Montague for the sibling weight family. The
-    contribution recorded here is the proof-assistant formalization and its
-    auditable dependency chain. As an aside: the supporting library pinned by
-    this entry also contains a machine-checked counterexample, on the same
-    axiom set, to a log-concavity conjecture of Coffey and Csordas for the
-    derivatives of this same kernel; that theorem is not compared by this
-    configuration and is mentioned only as context for the library.
+  name: Zeros of the odd channel of Riemann's kernel
+  description: 'This project formalizes in Lean 4 the zero geometry of the odd channel
+    of Riemann''s kernel, refuting conjectures of X.-J. Yang (Fractals 32 (2024)
+    2340116). Let Phi be the kernel of Riemann''s integral representation, Phi(u)
+    = sum_{n>=1} (4 pi^2 n^4 e^{9u/2} - 6 pi n^2 e^{5u/2}) e^{-pi n^2 e^{2u}}, the
+    positive even function whose cosh transform is the completed zeta function,
+    and let F(w) = 2 int_0^infty Phi(u) sinh(wu) du be the odd channel of the same
+    kernel; this is Yang''s "tempered xi function", in shifted coordinates. Six
+    statements are compared: F is entire; F has infinitely many zeros; every nonzero
+    zero of F has both real and imaginary parts nonzero; the zeros occur in quartets
+    w, -w, conj w, -conj w; consequently the source paper''s Conjecture 1, which
+    asserts that every zero of the tempered xi function lies on the line Re s =
+    1/2, is false, and indeed apart from the origin no zero lies on that line; and
+    the zeros of the sine channel t -> F(it) are not all real, which is the exactly
+    formalizable content of the source paper''s Conjecture 2. The audience is the
+    study of real zeros of Fourier transforms of Riemann''s kernel, the line of
+    work of Lagarias and Montague (2011), Ki, Kim and Lee (2009), and the de Bruijn-Newman
+    literature: the weight family interpolating the Lagarias-Montague integrated
+    function and the odd xi derivatives places F at weight zero. Yang''s conjectures
+    are the occasion for the formalization, not its research context; Conjecture
+    1 was also the subject of a prize challenge publicly announced by its author,
+    recorded here solely as evidence that the question was regarded as open and
+    difficult, with no claim made concerning the prize itself. This entry makes
+    no claim concerning the Riemann hypothesis. Scope limitation, stated plainly:
+    the compared theorems quantify over the integral F as defined in the Challenge
+    file. The classical identification of F with the odd part of the completed zeta
+    function is NOT proved in Lean; it was checked numerically only (agreement to
+    about forty digits at several complex points), and nothing in the formal development
+    depends on it. On novelty: the refutation of the source conjectures is believed
+    new. In the literature search completed 26 August 2026, every recorded citation
+    of the source paper is a self-citation, the conjectures are restated as open
+    in a 2026 invited review, and no refutation and no proof-assistant formalization
+    of any compared statement was identified; that search is recorded but not exhaustive,
+    and absence from search is not proof of open status. The component statements
+    are not claimed as new: that F is entire of order one with infinitely many zeros
+    was asserted, without proof, by Yang, Abdel-Aty and Geng (Thermal Science 27
+    (2023) 505-512) for this same function; the exclusion of zeros from the imaginary
+    axis is, in sine-transform coordinates, a 1971 theorem of Spira, independently
+    reproved here, with classical ancestry in Polya (1918, 1926) and Wintner (1935);
+    and the quartet symmetry is recorded as a printed remark by Lagarias and Montague
+    for the sibling weight family. The contribution recorded here is the proof-assistant
+    formalization and its auditable dependency chain. As an aside: the supporting
+    library pinned by this entry also contains a machine-checked counterexample,
+    on the same axiom set, to a log-concavity conjecture of Coffey and Csordas for
+    the derivatives of this same kernel; that theorem is not compared by this configuration
+    and is mentioned only as context for the library.'
   authors:
-    - "Brandon Yates"
-  license: "Apache-2.0"
+  - Brandon Yates
+  license: Apache-2.0
   responsible_maintainers:
-    - "Brandon Yates"
-
+  - Brandon Yates
+repository:
+  substantive_formalization:
+    id: BrandonMYates/xilab
+    revision: 4d24c74c3834b3f47a84110d8b864e3e50eacd7f
 classification:
-  arxiv: ["math.NT", "math.CV", "math.CA"]
-  msc2020: ["30D15", "30D10", "11M06", "44A15"]
-
+  arxiv:
+  - math.NT
+  - math.CV
+  - math.CA
+  msc2020:
+  - 30D15
+  - 30D10
+  - 11M06
+  - 44A15
 sources:
-  - title: "The integral representation for the Riemann Xi-function"
-    authors: ["Robert Spira"]
-    id: "https://doi.org/10.1016/0022-314X(71)90016-3"
-    type: paper
-    location: "J. Number Theory 3 (1971), 498-501"
-    relationship: independently-proves
-    note: >-
-      Spira's theorem is that the sine transform of Phi has no nonzero real
-      zero; in the coordinates of F this is the exclusion of zeros from the
-      imaginary axis, one of the two clauses of the compared theorem
-      zeros_off_axes. The library proves it independently, from strict
-      monotonicity of Phi established via Poisson summation. This submission
-      makes no claim of priority for that statement.
-    author_endorsement: "not-contacted"
-  - title: "On a tempered xi function associated with the Riemann xi function"
-    authors: ["Xiao-Jun Yang"]
-    id: "https://doi.org/10.1142/S0218348X23401163"
-    type: paper
-    location: "Fractals 32 (2024) 2340116"
-    relationship: background
-    note: >-
-      Source of Conjectures 1, 2 and 3, which the compared theorems refute:
-      Conjecture 1 is compared directly and Conjecture 2 through its exactly
-      formalizable content; Conjecture 3 is not formalized (see the alignment
-      notes). The conjectures are the occasion for this work, not its research
-      context.
-    author_endorsement: "not-contacted"
-  - title: "A new odd entire function of order one arising in the heat problem"
-    authors: ["Xiao-Jun Yang", "M. Abdel-Aty", "L.-L. Geng"]
-    id: "https://doi.org/10.2298/TSCI221105010Y"
-    type: paper
-    location: "Thermal Science 27 (2023), no. 1B, 505-512"
-    relationship: background
-    note: >-
-      Defines the same transform in the same normalisation (eq. (17) there)
-      and asserts that it is entire of order one and has infinitely many
-      zeros. The assertions are not accompanied by proofs in that paper; the
-      corresponding compared theorems here supply proofs. Recorded so the
-      literature account is accurate: the statements of entirety and
-      infinitude predate this formalization.
-    author_endorsement: "not-contacted"
-  - title: "The integral of the Riemann xi-function"
-    authors: ["Jeffrey C. Lagarias", "David Montague"]
-    id: "https://arxiv.org/abs/1106.4348"
-    type: paper
-    location: "Comment. Math. Univ. St. Pauli 60 (2011), no. 1-2, 143-169"
-    relationship: background
-    note: >-
-      For the sibling weight-(-1) family, Lemma 3.2(1) gives order one and
-      maximal type (crediting Polya 1927), and the remark after Lemma 3.2
-      records the four-fold zero symmetry formalized here as zeros_quartet.
-      Their infinitude mechanism, a nonzero limit of the transform on the real
-      axis, provably does not transfer to the weight-zero function F, whose
-      sine channel decays on the real axis; the infinitude proof here is
-      different.
-    author_endorsement: "not-contacted"
-  - title: "Bemerkung ueber die Integraldarstellung der Riemannschen xi-Funktion"
-    authors: ["George Polya"]
-    type: paper
-    location: "Acta Math. 48 (1926), 305-317, Hilfssatz I (pp. 315-316)"
-    relationship: background
-    note: >-
-      Hilfssatz I is the classical ancestor of the finitely-many-real-zeros
-      mechanism underlying the zero-location arguments for this kernel.
-      Recorded as ancestry; the Lean proofs are built directly from Mathlib
-      and do not adapt this text. The author is deceased, so no contact was
-      possible.
-    author_endorsement: "n/a"
-  - title: "A note on the Riemann xi-function"
-    authors: ["Aurel Wintner"]
-    type: paper
-    location: "J. London Math. Soc. 10 (1935), 82-83"
-    relationship: background
-    note: >-
-      Strict monotonicity of Phi on the positive reals, the analytic input to
-      the imaginary-axis exclusion. Not assumed here: the library proves the
-      needed monotonicity from Poisson summation rather than citing it. The
-      author is deceased, so no contact was possible.
-    author_endorsement: "n/a"
-
+- title: The zeros of the tempered xi function
+  authors:
+  - Brandon Yates
+  type: paper
+  relationship: formalizes
+  note: Unpublished manuscript, privately dated 3 August 2026; not publicly available.
+    The compared theorems formalize its Proposition 3.2, Theorem 3.3 and Corollary
+    3.4. Identified here so the chronology recorded in the review notes can be assessed;
+    being unpublished, it establishes nothing about novelty, priority, or reception.
+- title: The integral representation for the Riemann Xi-function
+  authors:
+  - Robert Spira
+  id: https://doi.org/10.1016/0022-314X(71)90016-3
+  type: paper
+  location: J. Number Theory 3 (1971), 498-501
+  relationship: independently-proves
+  note: Spira's theorem is that the sine transform of Phi has no nonzero real zero;
+    in the coordinates of F this is the exclusion of zeros from the imaginary axis,
+    one of the two clauses of the compared theorem zeros_off_axes. The library proves
+    it independently, from strict monotonicity of Phi established via Poisson summation.
+    This submission makes no claim of priority for that statement.
+  author_endorsement: not-contacted
+- title: On a tempered xi function associated with the Riemann xi function
+  authors:
+  - Xiao-Jun Yang
+  id: https://doi.org/10.1142/S0218348X23401163
+  type: paper
+  location: Fractals 32 (2024) 2340116
+  relationship: background
+  note: 'Source of Conjectures 1, 2 and 3, which the compared theorems refute: Conjecture
+    1 is compared directly and Conjecture 2 through its exactly formalizable content;
+    Conjecture 3 is not formalized (see the alignment notes). The conjectures are
+    the occasion for this work, not its research context.'
+  author_endorsement: not-contacted
+- title: A new odd entire function of order one arising in the heat problem
+  authors:
+  - Xiao-Jun Yang
+  - M. Abdel-Aty
+  - L.-L. Geng
+  id: https://doi.org/10.2298/TSCI221105010Y
+  type: paper
+  location: Thermal Science 27 (2023), no. 1B, 505-512
+  relationship: background
+  note: 'Defines the same transform in the same normalisation (eq. (17) there) and
+    asserts that it is entire of order one and has infinitely many zeros. The assertions
+    are not accompanied by proofs in that paper; the corresponding compared theorems
+    here supply proofs. Recorded so the literature account is accurate: the statements
+    of entirety and infinitude predate this formalization.'
+  author_endorsement: not-contacted
+- title: The integral of the Riemann xi-function
+  authors:
+  - Jeffrey C. Lagarias
+  - David Montague
+  id: https://arxiv.org/abs/1106.4348
+  type: paper
+  location: Comment. Math. Univ. St. Pauli 60 (2011), no. 1-2, 143-169
+  relationship: background
+  note: For the sibling weight-(-1) family, Lemma 3.2(1) gives order one and maximal
+    type (crediting Polya 1927), and the remark after Lemma 3.2 records the four-fold
+    zero symmetry formalized here as zeros_quartet. Their infinitude mechanism,
+    a nonzero limit of the transform on the real axis, provably does not transfer
+    to the weight-zero function F, whose sine channel decays on the real axis; the
+    infinitude proof here is different.
+  author_endorsement: not-contacted
+- title: Bemerkung ueber die Integraldarstellung der Riemannschen xi-Funktion
+  authors:
+  - George Polya
+  type: paper
+  location: Acta Math. 48 (1926), 305-317, Hilfssatz I (pp. 315-316)
+  relationship: background
+  note: Hilfssatz I is the classical ancestor of the finitely-many-real-zeros mechanism
+    underlying the zero-location arguments for this kernel. Recorded as ancestry;
+    the Lean proofs are built directly from Mathlib and do not adapt this text.
+    The author is deceased, so no contact was possible.
+  author_endorsement: n/a
+- title: A note on the Riemann xi-function
+  authors:
+  - Aurel Wintner
+  type: paper
+  location: J. London Math. Soc. 10 (1935), 82-83
+  relationship: background
+  note: 'Strict monotonicity of Phi on the positive reals, the analytic input to
+    the imaginary-axis exclusion. Not assumed here: the library proves the needed
+    monotonicity from Poisson summation rather than citing it. The author is deceased,
+    so no contact was possible.'
+  author_endorsement: n/a
 related_formalizations:
-  - id: "https://github.com/leanprover-community/mathlib4"
-    relationship: "independent"
-    note: >-
-      Mathlib supplies completedRiemannZeta and Gaussian Poisson summation but
-      has no Riemann kernel Phi and no odd channel; both are defined in the
-      supporting library, which also builds the holomorphic logarithm of a
-      nowhere-zero entire function and Hadamard-style order-one machinery that
-      Mathlib lacks.
-
+- id: https://github.com/leanprover-community/mathlib4
+  relationship: independent
+  note: Mathlib supplies completedRiemannZeta and Gaussian Poisson summation but
+    has no Riemann kernel Phi and no odd channel; both are defined in the supporting
+    library, which also builds the holomorphic logarithm of a nowhere-zero entire
+    function and Hadamard-style order-one machinery that Mathlib lacks.
 status:
-  scope: >-
-    Proved: the six compared statements. F is entire; F has infinitely many
-    zeros; every nonzero zero has nonzero real and imaginary parts; quartet
-    symmetry of the zero set; the negation of the source paper's Conjecture 1;
-    and the negation of the exactly formalizable content of its Conjecture 2.
-    NOT proved in Lean, and not relied on by any compared statement: the
-    identification of F with the odd part of the completed zeta function; the
-    order bound on F (proved in the supporting library but not compared by
-    this configuration); Conjecture 3 of the source paper, which is not
-    formalized; and simplicity of the zero of F at the origin.
+  scope: 'Proved: the six compared statements. F is entire; F has infinitely many
+    zeros; every nonzero zero has nonzero real and imaginary parts; quartet symmetry
+    of the zero set; the negation of the source paper''s Conjecture 1; and the negation
+    of the exactly formalizable content of its Conjecture 2. NOT proved in Lean,
+    and not relied on by any compared statement: the identification of F with the
+    odd part of the completed zeta function; the order bound on F (proved in the
+    supporting library but not compared by this configuration); Conjecture 3 of
+    the source paper, which is not formalized; and simplicity of the zero of F at
+    the origin.'
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: []
-
 automation:
   methods:
-    - method: "agent"
-      models: ["claude-opus-5"]
-      framework: "Claude Code"
-      tool_setup: >-
-        The Lean development was written by Claude Code agents working from
-        the author's mathematical draft, one agent per file, under a written
-        protocol requiring that any result owned by another file be declared
-        as an explicit sorry-ed frontier rather than assumed. Every file was
-        independently rebuilt and axiom-audited by a second agent, and each
-        theorem carries a print-axioms check in source. Portions of the
-        supporting library and of this comparator packaging were also produced
-        by related Claude models under the same protocol.
-      cost:
-        wall_time: "approximately one day for the supporting library"
-        spend_usd: "subscription-based"
-        hardware: "local Apple Silicon machine"
-      prompting_notes: >-
-        Two specifications given to agents during construction of the
-        supporting library were mathematically wrong and were corrected by the
-        agents rather than implemented: a sine-transform positivity lemma
-        stated with a non-strict monotonicity hypothesis, which is false, and
-        a routing through Gamma-function bounds that a shorter argument made
-        unnecessary.
-  spend_usd: "subscription-based"
-  notes: >-
-    The mathematics is the author's. The Lean formalization was produced by
+  - method: agent
+    models:
+    - claude-opus-5
+    framework: Claude Code
+    tool_setup: The Lean development was written by Claude Code agents working from
+      the author's mathematical draft, one agent per file, under a written protocol
+      requiring that any result owned by another file be declared as an explicit
+      sorry-ed frontier rather than assumed. Every file was independently rebuilt
+      and axiom-audited by a second agent, and each theorem carries a print-axioms
+      check in source. Portions of the supporting library and of this comparator
+      packaging were also produced by related Claude models under the same protocol.
+    cost:
+      wall_time: approximately one day for the supporting library
+      spend_usd: subscription-based
+      hardware: local Apple Silicon machine
+    prompting_notes: 'Two specifications given to agents during construction of
+      the supporting library were mathematically wrong and were corrected by the
+      agents rather than implemented: a sine-transform positivity lemma stated with
+      a non-strict monotonicity hypothesis, which is false, and a routing through
+      Gamma-function bounds that a shorter argument made unnecessary.'
+  spend_usd: subscription-based
+  notes: The mathematics is the author's. The Lean formalization was produced by
     automation under the author's direction and verified mechanically.
-
 fidelity:
-  divergences: >-
-    The compared theorems quantify over the integral F defined in the
-    Challenge file, not over the completed zeta function. The source
-    manuscript treats the two as identified; the formal development does not
-    assert the identification, which was checked numerically only. The
-    refutation of the source paper's Conjecture 1 is stated in the shifted
-    coordinates recorded in the alignment notes. No other known divergence.
-
+  divergences: The compared theorems quantify over the integral F defined in the
+    Challenge file, not over the completed zeta function. The source manuscript
+    treats the two as identified; the formal development does not assert the identification,
+    which was checked numerically only. The refutation of the source paper's Conjecture
+    1 is stated in the shifted coordinates recorded in the alignment notes. No other
+    known divergence.
 review:
-  status: "agent-reviewed"
+  status: agent-reviewed
   reviewers:
-    - "Claude Code agents (independent per-file rebuild and axiom audit)"
-  notes: >-
-    Each file of the supporting library was rebuilt from source and its main
-    theorems audited with print-axioms by an agent other than its author. No
-    human expert has reviewed the mathematics, and the draft manuscript has
-    not been peer reviewed. Provenance chronology: the draft manuscript
-    underlying this formalization and its accompanying literature sweep are
-    externally dated 3 August 2026, in a write-once file; this is recorded for
-    provenance, and no claim of first public presentation is made. A further
-    literature search completed 26 August 2026 identified no refutation of the
-    source conjectures and no other proof-assistant formalization of any
-    compared statement; every recorded citation of the source paper found by
-    that search is a self-citation, and the conjectures are restated as open
-    in a 2026 invited review. That search is recorded but not exhaustive, and
-    absence from search is not proof of open status. The prior-art status of
-    the component statements found by the same search is recorded in the
-    source notes above.
-
+  - Claude Code agents (independent per-file rebuild and axiom audit)
+  notes: 'Each file of the supporting library was rebuilt from source and its main
+    theorems audited with print-axioms by an agent other than its author. No human
+    expert has reviewed the mathematics, and the draft manuscript has not been peer
+    reviewed. Provenance chronology: the draft manuscript underlying this formalization
+    and its accompanying literature sweep are externally dated 3 August 2026, in
+    a write-once file; this is recorded for provenance, and no claim of first public
+    presentation is made. A further literature search completed 26 August 2026 identified
+    no refutation of the source conjectures and no other proof-assistant formalization
+    of any compared statement; every recorded citation of the source paper found
+    by that search is a self-citation, and the conjectures are restated as open
+    in a 2026 invited review. That search is recorded but not exhaustive, and absence
+    from search is not proof of open status. The prior-art status of the component
+    statements found by the same search is recorded in the source notes above.'
 alignment:
-  namespace: "TemperedXi"
+  namespace: TemperedXi
   statements:
-    - source: "Draft Proposition 3.2 (F entire of order at most one), the differentiability part"
-      lean: "TemperedXi.F_differentiable"
-      module: "Challenge"
-      status: "proved"
-      note: >-
-        Only entirety is compared. The order bound of Proposition 3.2 is
-        proved in the supporting library but is not among the compared
-        statements.
-    - source: "Draft Theorem 3.3, first clause (infinitude of zeros)"
-      lean: "TemperedXi.zeros_infinite"
-      module: "Challenge"
-      status: "proved"
-    - source: "Draft Theorem 3.3, second clause (exclusion from both axes)"
-      lean: "TemperedXi.zeros_off_axes"
-      module: "Challenge"
-      status: "proved"
-      note: >-
-        The imaginary-axis clause (w.re nonzero) is, in sine-transform
-        coordinates, Spira's theorem, independently reproved from strict
-        monotonicity of Phi established via Poisson summation. The real-axis
-        clause (w.im nonzero) follows from positivity of Phi.
-    - source: "Draft Theorem 3.3, third clause (quartet symmetry)"
-      lean: "TemperedXi.zeros_quartet"
-      module: "Challenge"
-      status: "proved"
-    - source: "Draft Corollary 3.4, the clause refuting Conjecture 1 of the Fractals paper"
-      lean: "TemperedXi.critical_line_conjecture_false"
-      module: "Challenge"
-      status: "proved"
-      note: >-
-        The source conjecture asserts that every zero of the tempered xi
-        function lies on the line Re s = 1/2. In the coordinates used here the
-        tempered xi function at s is F(s - 1/2), so the compared theorem is
-        the negation of that assertion stated for F: it is not the case that
-        every zero s of s -> F(s - 1/2) has Re s = 1/2. The rendering of the
-        source's function as F is the normalisation recorded in the Challenge
-        header and is not itself a formal dependency.
-    - source: "Draft Corollary 3.4, the clause refuting Conjecture 2, in its exactly formalizable part"
-      lean: "TemperedXi.sine_channel_zeros_not_all_real"
-      module: "Challenge"
-      status: "adapted"
-      note: >-
-        The draft states that Conjectures 1, 2 and 3 of the source paper are
-        false. Conjecture 1 is compared as critical_line_conjecture_false;
-        this theorem states only the exactly formalizable mathematical content
-        of Conjecture 2, as the negation of "every zero of the sine channel
-        t -> F(it) is real". Conjecture 3 is NOT formalized: its statement
-        involves a function the source does not define precisely enough to
-        render faithfully, and asserting a rendering would be a fidelity gap.
-        The compared theorem makes no claim about the source paper's text,
-        only about the sine channel.
-
-acknowledgements: >-
-  Mathlib and its contributors; the Lean FRO for Lean, Comparator, lean4export
-  and Verso; the Mathlib Initiative for the formalization.yaml standard.
+  - source: Draft Proposition 3.2 (F entire of order at most one), the differentiability
+      part
+    lean: TemperedXi.F_differentiable
+    module: Challenge
+    status: proved
+    note: Only entirety is compared. The order bound of Proposition 3.2 is proved
+      in the supporting library but is not among the compared statements.
+  - source: Draft Theorem 3.3, first clause (infinitude of zeros)
+    lean: TemperedXi.zeros_infinite
+    module: Challenge
+    status: proved
+  - source: Draft Theorem 3.3, second clause (exclusion from both axes)
+    lean: TemperedXi.zeros_off_axes
+    module: Challenge
+    status: proved
+    note: The imaginary-axis clause (w.re nonzero) is, in sine-transform coordinates,
+      Spira's theorem, independently reproved from strict monotonicity of Phi established
+      via Poisson summation. The real-axis clause (w.im nonzero) follows from positivity
+      of Phi.
+  - source: Draft Theorem 3.3, third clause (quartet symmetry)
+    lean: TemperedXi.zeros_quartet
+    module: Challenge
+    status: proved
+  - source: Draft Corollary 3.4, the clause refuting Conjecture 1 of the Fractals
+      paper
+    lean: TemperedXi.critical_line_conjecture_false
+    module: Challenge
+    status: proved
+    note: 'The source conjecture asserts that every zero of the tempered xi function
+      lies on the line Re s = 1/2. In the coordinates used here the tempered xi
+      function at s is F(s - 1/2), so the compared theorem is the negation of that
+      assertion stated for F: it is not the case that every zero s of s -> F(s -
+      1/2) has Re s = 1/2. The rendering of the source''s function as F is the normalisation
+      recorded in the Challenge header and is not itself a formal dependency.'
+  - source: Draft Corollary 3.4, the clause refuting Conjecture 2, in its exactly
+      formalizable part
+    lean: TemperedXi.sine_channel_zeros_not_all_real
+    module: Challenge
+    status: adapted
+    note: 'The draft states that Conjectures 1, 2 and 3 of the source paper are
+      false. Conjecture 1 is compared as critical_line_conjecture_false; this theorem
+      states only the exactly formalizable mathematical content of Conjecture 2,
+      as the negation of "every zero of the sine channel t -> F(it) is real". Conjecture
+      3 is NOT formalized: its statement involves a function the source does not
+      define precisely enough to render faithfully, and asserting a rendering would
+      be a fidelity gap. The compared theorem makes no claim about the source paper''s
+      text, only about the sine channel.'
+acknowledgements: Mathlib and its contributors; the Lean FRO for Lean, Comparator,
+  lean4export and Verso; the Mathlib Initiative for the formalization.yaml standard.
