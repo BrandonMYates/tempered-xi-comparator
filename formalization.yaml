@@ -220,7 +220,8 @@ review:
     by that search is a self-citation, and the conjectures are restated as open
     in a 2026 invited review. That search is recorded but not exhaustive, and absence
     from search is not proof of open status. The prior-art status of the component
-    statements found by the same search is recorded in the source notes above.'
+    statements found by the same search is recorded in the source notes above. Re-audited 2026-09-11 with a clean rebuild: every compared declaration depends on exactly
+    propext, Classical.choice and Quot.sound, matching status.axioms.'
 alignment:
   namespace: TemperedXi
   statements:
